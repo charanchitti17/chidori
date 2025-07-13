@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter"/>
+    <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter"/>
+    <conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter"/>
+
+    <property name="LOG_PATH" value="logs" />
+<!--    <property name="LOG_FILE_NAME" value="my-app" />-->
+    <property name="LOG_PATTERN"
+              value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr([%thread]){faint} %clr(%-5level) %clr(%logger{36}){cyan} - %msg%n%wEx"/>
+
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+<!--    <appender name="FileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        <file>${LOG_PATH}/${LOG_FILE_NAME}.log</file>-->
+
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">-->
+<!--            <fileNamePattern>${LOG_PATH}/${LOG_FILE_NAME}-%d{yyyy-MM-dd}.log</fileNamePattern>-->
+<!--            <maxHistory>7</maxHistory> &lt;!&ndash; Keep logs for 7 days &ndash;&gt;-->
+<!--        </rollingPolicy>-->
+
+<!--        <encoder>-->
+<!--            <pattern>${LOG_PATTERN}</pattern>-->
+<!--        </encoder>-->
+<!--    </appender>-->
+
+    <appender name="AsyncConsole" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="Console"/>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="AsyncConsole" />
+<!--        <appender-ref ref="FileAppender" />-->
+    </root>
+
+
+</configuration>

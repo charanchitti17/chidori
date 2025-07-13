@@ -11,5 +11,11 @@ spring:
 my:
   application-name: chidori-app-local
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, env, loggers, metrics, refresh
+
 db:
   name: chidori-db-local
