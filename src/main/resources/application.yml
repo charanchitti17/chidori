@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: igris-application
+  config:
+    import: "configserver:"
+  cloud:
+    compatibility-verifier:
+      enabled: false
+    config:
+      uri: http://localhost:8888
+my:
+  application-name: chidori-app-local
+
+db:
+  name: chidori-db-local
