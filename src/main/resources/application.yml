@@ -19,3 +19,6 @@ management:
 
 db:
   name: chidori-db-local
+logging:
+  level:
+    org.springframework.security: DEBUG
