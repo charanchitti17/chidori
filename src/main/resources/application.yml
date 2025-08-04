@@ -1,6 +1,6 @@
 spring:
   application:
-    name: igris-application
+    name: chidori-application
   config:
     import: "configserver:"
   cloud:
